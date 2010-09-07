@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "cleverua-ui_templates"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Sets up a decent UI template for your rails3 project in a minute}
+    gem.description = %Q{Sets up a decent UI template for your rails3 project in a minut}
     gem.email = "pavlo@cleverua.com"
     gem.homepage = "http://github.com/cleverua/ui_templates"
     gem.authors = ["Pavlo V. Lysov"]

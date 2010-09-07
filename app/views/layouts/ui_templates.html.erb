@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <title><%#=h html_title %></title>
+ <meta name="description" content="<%#= Redmine::Info.app_name %>" />
+ <meta name="keywords" content="issue,bug,tracker" />
+ <%= stylesheet_link_tag 'ui_templates', :media => 'all' %>
+ <%= stylesheet_link_tag 'themes/basecamp/application.css', :media => 'all' %>
+ <%= stylesheet_link_tag 'application_mojito', :media => 'all' %>
+ <%= javascript_include_tag :defaults %>
+ <%= yield :header_tags -%>
+</head>
+
+<body class="<%#= body_css_classes %>">
+ <div id="wrapper">
+ <div id="wrapper2">
+ <div id="top-menu">
+  <div id="account">
+   <ul><li><a href="/my/account" class="my-account">My account</a></li> 
+   <li><a href="/logout" class="logout">Sign out</a></li></ul></div> 
+   <div id="loggedas">Logged in as <a href="/account/show/5">CleverUA</a></div> 
+   <ul><li><a href="/" class="home">Home</a></li> 
+   <li><a href="/my/page" class="my-page">My page</a></li> 
+   <li><a href="/projects" class="projects">Projects</a></li> 
+   <li><a href="http://www.redmine.org/guide" class="help">Help</a></li></ul>
+  </div>
+</div>
+      
+<div id="header">
+ <div id="quick-search">
+  <% form_tag('/', :method => :get ) do %>
+  search :
+  <%= text_field_tag 'q', '', :size => 20, :class => 'small', :accesskey => 'accesskey(:quick_search)' %>
+  <% end %>
+ </div>
+    
+ <div id="main-menu"> 
+  <ul><li><a href="/projects/redmine" class="overview">Overview</a></li> 
+  <li><a href="#" class="download">Downloads</a></li> 
+  <li><a href="#" class="activity">Activities</a></li> 
+  <li><a href="#" class="issues">Issues</a></li> 
+  <li><a href="#" class="news">New</a></li> 
+  <li><a href="#" class="wiki selected">Wiki</a></li> 
+  <li><a href="#" class="boards">Forums</a></li> 
+  <li><a href="#" class="repository">Storage</a></li></ul> 
+ </div> 
+</div>
+
+<div class="" id="main"> 
+ <div id="sidebar">        
+  <h3>Administration</h3> 
+  <div id="admin-menu"> 
+    <ul> 
+     <ul><li><a href="/admin/projects" class="projects">Projects</a></li> 
+      <li><a href="/users" class="users selected">Users</a></li> 
+      <li><a href="/groups" class="groups">Groups</a></li> 
+      <li><a href="/roles" class="roles">Roles and permissions</a></li> 
+      <li><a href="/trackers" class="trackers">Trackers</a></li> 
+      <li><a href="/issue_statuses" class="issue_statuses issue-statuses">Issue statuses</a></li> 
+      <li><a href="/workflows/edit" class="workflows">Workflow</a></li> 
+      <li><a href="/custom_fields" class="custom_fields custom-fields">Custom fields</a></li> 
+      <li><a href="/enumerations" class="enumerations">Enumerations</a></li> 
+      <li><a href="/settings" class="settings">Settings</a></li> 
+      <li><a href="/ldap_auth_sources" class="server_authentication ldap-authentication">LDAP authentication</a></li> 
+      <li><a href="/admin/plugins" class="plugins">Plugins</a></li> 
+      <li><a href="/admin/info" class="info">Information</a></li></ul> 
+    </ul> 
+  </div> 
+ </div>     
+
+ <div id="content">
+  <div class="contextual"> 
+   <a href="/roles/new" class="icon icon-add">New role</a> 
+  </div> 
+ 
+ <h2>Roles</h2> 
+ 
+ <table class="list"> 
+  <thead><tr> 
+    <th>Role</th> 
+    <th>Sort</th> 
+    <th></th> 
+  </tr></thead> 
+  <tbody> 
+   <tr class="odd"> 
+    <td><span><a href="/roles/edit/3">Manager</a></span></td> 
+    <td align="center" style="width:15%;"> 
+     <a href=""><img alt="Move to bottom" src="/images/2downarrow.png?1266052092" /></a> 
+    </td> 
+    <td class="buttons"> 
+     <a href="#">Delete</a> 
+    </td> 
+   </tr>
+
+   <tr class="even"> 
+    <td><span><a href="/roles/edit/4">Developer</a></span></td> 
+    <td align="center" style="width:15%;"> 
+     <a href=""><img alt="Move to bottom" src="/images/2downarrow.png?1266052092" /></a> 
+    </td> 
+    <td class="buttons"> 
+     <a href="">Delete</a> 
+    </td> 
+   </tr> 
+ 
+   <tr class="odd"> 
+    <td><span><a href="/roles/edit/5">Report manager</a></span></td> 
+    <td align="center" style="width:15%;"> 
+     <a href=""><img alt="Move to bottom" src="/images/2downarrow.png?1266052092" /></a>  
+    </td> 
+    <td class="buttons"> 
+     <a href="">Delete</a> 
+    </td> 
+   </tr> 
+ 
+   <tr class="even"> 
+    <td><em><a href="/roles/edit/1">Non member</a></em></td> 
+    <td align="center" style="width:15%;"> 
+    </td> 
+    <td class="buttons"> 
+    </td> 
+   </tr> 
+ 
+   <tr class="odd"> 
+    <td><em><a href="/roles/edit/2">Anonymous</a></em></td> 
+    <td align="center" style="width:15%;"> 
+    </td> 
+    <td class="buttons"> 
+    </td> 
+   </tr> 
+ 
+  </tbody> 
+ </table> 
+ 
+ <p class="pagination"></p> 
+ 
+ <p><a href="/roles/report">Permissions report</a></p> 
+ <hr></hr><p></p>
+
+ <h2>New project</h2> 
+ 
+ <form action="/projects/new" class="tabular" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="NROszTBrU0eKYM0j1DSNGcXySnswZOgyxGq/+mu6oZI=" /></div> 
+ 
+ <div class="box"> 
+<!--[form:project]--> 
+ <p><label for="project_name">Name<span class="required"> *</span></label><input id="project_name" maxlength="30" name="project[name]" size="30" type="text" value="" /><br /><em>30 characters maximum.</em></p> 
+ 
+ <p><label for="project_description">Description</label><textarea class="wiki-edit" cols="40" id="project_description" name="project[description]" rows="5"></textarea></p> 
+ <p><label for="project_identifier">Identifier<span class="required"> *</span></label><input id="project_identifier" maxlength="20" name="project[identifier]" size="20" type="text" /> 
+ 
+ <br /><em>Length between 1 and 20 characters. Only lower case letters (a-z), numbers and dashes are allowed.<br />Once saved, the identifier can not be changed.</em> 
+ </p> 
+ <p><label for="project_homepage">Homepage</label><input id="project_homepage" name="project[homepage]" size="60" type="text" value="" /></p> 
+ <p><label for="project_is_public">Public</label><input name="project[is_public]" type="hidden" value="0" /><input checked="checked" id="project_is_public" name="project[is_public]" type="checkbox" value="1" /></p> 
+ </div> 
+ 
+ <fieldset class="box"><legend>Trackers</legend> 
+    <label class="floating"> 
+    <input checked="checked" id="project_tracker_ids_" name="project[tracker_ids][]" type="checkbox" value="1" /> 
+    Errors
+    </label> 
+ 
+    <label class="floating"> 
+    <input checked="checked" id="project_tracker_ids_" name="project[tracker_ids][]" type="checkbox" value="2" /> 
+    Changes
+    </label> 
+ 
+    <label class="floating"> 
+    <input checked="checked" id="project_tracker_ids_" name="project[tracker_ids][]" type="checkbox" value="3" /> 
+    Support
+    </label> 
+ 
+  <input id="project_tracker_ids_" name="project[tracker_ids][]" type="hidden" value="" /> 
+  </fieldset> 
+   
+  <fieldset class="box"><legend>Modules</legend> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="issue_tracking" /> 
+      Issue tracking
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="time_tracking" /> 
+      Time tracking
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="news" /> 
+      News
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="documents" /> 
+      Documents
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="files" /> 
+      Files
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="wiki" /> 
+      Wiki
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="repository" /> 
+      Repository
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="boards" /> 
+      Boards
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="calendar" /> 
+      Calendar
+      </label> 
+   
+      <label class="floating"> 
+      <input checked="checked" id="enabled_modules_" name="enabled_modules[]" type="checkbox" value="gantt" /> 
+      Gantt
+      </label> 
+   
+  </fieldset> 
+   
+  <input name="commit" type="submit" value="Save" /> 
+  </form> 
+  <p></p>
+
+   <div class="contextual"> 
+      <a href="/my/page_layout">Personalize this page</a> 
+  </div> 
+  <h2>My page</h2> 
+  <div id="list-top"> 
+  </div> 
+  <div id="list-left" class="splitcontentleft"> 
+          <div class="mypage-box">        
+                  <h3>Issues assigned to me (0)</h3> 
+          <p class="nodata">No data to display</p> 
+          </div> 
+  </div> 
+  <div id="list-right" class="splitcontentright"> 
+          <div class="mypage-box">        
+                  <h3>Reported issues (0)</h3> 
+          <p class="nodata">No data to display</p> 
+          </div> 
+  </div> 
+   
+      </div>
+  </div>
+  </div>
+
+  <div id="ajax-indicator" style="display:none;"><span><%#= l(:label_loading) %></span></div>
+          
+  <div id="footer">
+    <div class="bgl"><div class="bgr">
+      Powered by <%= link_to "Redmine", "http://redmine.org" %> &copy; 2006-2010 Jean-Philippe Lang
+    </div></div>
+ </div>
+ </div>
+ </div>
+ </body>
+</html>
